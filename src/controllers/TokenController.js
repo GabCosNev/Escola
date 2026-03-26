@@ -28,7 +28,7 @@ class TokenController {
         expiresIn: process.env.TOKEN_EXPIRATION
       });
 
-      return res.send({ token });
+      return res.send({ token, user: { nome: user.nome, id, email } });
     }
     catch (e) {
       res.status(400).json({
